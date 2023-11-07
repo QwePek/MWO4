@@ -32,7 +32,7 @@ jobs:
     - name: Wejscie
       run: cd Tests
     - name: Build .NET App
-      run: dotnet build mwo3 -c Release
+      run: dotnet build
 
     - name: Publish .NET App
-      run: dotnet publish mwo3 -c Release -o ./publish
+      run: dotnet publish
