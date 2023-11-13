@@ -1,13 +1,17 @@
-name: CI
+name: MWO4 deploy to Azure
 
 on:
   push:
-    branches: [master]
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 # przygotowujemy środowisku
+      
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
@@ -64,4 +68,4 @@ jobs:
         uses: Azure/webapps-deploy@v2
         with:
           app-name: "MWO4"
-          publish-profile: $(( secrets. PUBLISH_PROFILE_PROD }} #uzywamy secrets przchowujacy profil publikacji
+          publish-profile: $(( secrets.PUBLISH_PROFILE_PROD }} #uzywamy secrets przchowujacy profil publikacji
