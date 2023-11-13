@@ -42,13 +42,13 @@ jobs:
       - name: Download a Build Artifact #pobieramy zip
         uses: actions/download-artifact@v3
         with:
-          name: .net-app
+          name: personsApi-artifact
           
       - name: Azure WebApp #uploadujemy do Azure
         id: deploy-to-azure
         uses: Azure/webapps-deploy@v2
         with:
-          app-name: 'MWO4-App' # nazwa aplikacji w azure
+          app-name: 'AplikacjaWeb' # nazwa aplikacji w azure
           slot-name: 'Production'
           publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }} #uzywamy secrets przchowujący profil publikacji
         
