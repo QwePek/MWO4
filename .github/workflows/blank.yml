@@ -68,5 +68,5 @@ jobs:
         id: deploy-to-azure
         uses: Azure/webapps-deploy@v2
         with:
-          app-name: "MWO4"
+          app-name: "AplikacjaWeb"
           publish-profile: ${{ secrets.PUBLISH_PROFILE_PROD }} #uzywamy secrets przchowujacy profil publikacji
