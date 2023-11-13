@@ -35,7 +35,7 @@ jobs:
       name: 'Dev'
       url: $(( steps.deploy-to-azure.outputs.webapp-url}}  # Okreslamy url aplikacji (Azure WebApp)
     steps:
-      - name: Download a Build Artifact #pobieramy zipa
+      - name: Download a Build Artifact #pobieramy zip
         uses: actions/download-artifact@v3.0.0
         with:
           name: personsApi-artifact
