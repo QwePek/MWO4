@@ -30,13 +30,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: personsApi-artifact
-          path: ${{ env.DOTNET_ROOT }}/api
+          path: Files\dotnet/api
         
   deploy-dev:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Dev'
+      name: 'Development'
       url: ${{ steps.deploy-to-azure.outputs.webapp-url}}  # Okreslamy url aplikacji (Azure WebApp)
     steps:
       - name: Download a Build Artifact #pobieramy zip
@@ -56,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-dev
     environment:
-      name: 'Prod okreslanmy jak sie nazywa środowisko'
+      name: 'Production'
       url: ${{ steps.deploy-to-azure.outputs.webapp-url }} #okreslamy url aplikacji (Azure WebApp)
     steps:
       - name: Download a Build Artifact
